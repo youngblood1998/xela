@@ -1,0 +1,23 @@
+
+(cl:in-package :asdf)
+
+(defsystem "xela_server-msg"
+  :depends-on (:roslisp-msg-protocol :roslisp-utils )
+  :components ((:file "_package")
+    (:file "SensData" :depends-on ("_package_SensData"))
+    (:file "_package_SensData" :depends-on ("_package"))
+    (:file "SensDataPoints" :depends-on ("_package_SensDataPoints"))
+    (:file "_package_SensDataPoints" :depends-on ("_package"))
+    (:file "SensName" :depends-on ("_package_SensName"))
+    (:file "_package_SensName" :depends-on ("_package"))
+    (:file "SensPoint" :depends-on ("_package_SensPoint"))
+    (:file "_package_SensPoint" :depends-on ("_package"))
+    (:file "SensStream" :depends-on ("_package_SensStream"))
+    (:file "_package_SensStream" :depends-on ("_package"))
+    (:file "xInfoMsg" :depends-on ("_package_xInfoMsg"))
+    (:file "_package_xInfoMsg" :depends-on ("_package"))
+    (:file "xSensorData" :depends-on ("_package_xSensorData"))
+    (:file "_package_xSensorData" :depends-on ("_package"))
+    (:file "xServerMsg" :depends-on ("_package_xServerMsg"))
+    (:file "_package_xServerMsg" :depends-on ("_package"))
+  ))

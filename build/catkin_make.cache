@@ -1,0 +1,2 @@
+my_xela_initial:xela_calibrate:xela_initial:xela_server
+-DCATKIN_DEVEL_PREFIX=/home/jay/xela/devel -DCMAKE_INSTALL_PREFIX=/home/jay/xela/install -G Unix Makefiles
