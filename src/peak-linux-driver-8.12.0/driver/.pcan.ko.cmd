@@ -1,0 +1,1 @@
+cmd_/home/jay/xela/src/peak-linux-driver-8.12.0/driver/pcan.ko := ld -r -m elf_x86_64 -z max-page-size=0x200000 -T ./scripts/module-common.lds --build-id  -o /home/jay/xela/src/peak-linux-driver-8.12.0/driver/pcan.ko /home/jay/xela/src/peak-linux-driver-8.12.0/driver/pcan.o /home/jay/xela/src/peak-linux-driver-8.12.0/driver/pcan.mod.o ;  true

@@ -1,0 +1,29 @@
+[21/06/2021 19:23:59.419]	:XELA:start:XELA:
+[21/06/2021 19:23:59.419]	File: /home/jay/xela/src/XELA_server-1.5.0rc21201-Ubuntu16.04-x64
+[21/06/2021 19:23:59.420]	ARGS: {'failures': [(1624274639.414525, 'ros')], 'file': 'xServ.ini', 'port': 5000, 'ip': '127.0.0.1', 'log': 'xela_error.log', 'csv': '/etc/xela/CSV', 'noros': True, 'timeout': False, 'debug': False, 'roslog': None, 'rosname': None}
+[21/06/2021 19:23:59.420]	EXEC: /home/jay/xela/src/XELA_server-1.5.0rc21201-Ubuntu16.04-x64/xela_server
+[21/06/2021 19:23:59.828]	Config File:
+		Line   0: [CAN]
+		Line   1: bustype = sim
+		Line   2: channel = 0
+		Line   3: [viz]
+		Line   4: max_offset = 100
+		Line   5: max_size = 100
+		Line   6: [debug]
+		Line   7: sens_print = minimal
+		Line   8: [sensor]
+		Line   9: num_of_sensor = 1
+		Line  10: sensor_height = 4
+		Line  11: sensor_width = 4
+		Line  12: ctrl_id = 0
+		Line  13: mode = 5
+
+[21/06/2021 19:23:59.829]	[0m
+[1m[32mSensor [31m1[0m[0m[22m (ID: 0, Size: 4x4, Type: 5)
+[21/06/2021 19:26:45.335]	:XELA:finish:XELA:
+
+[21/06/2021 20:13:31.912]	:XELA:start:XELA:
+[21/06/2021 20:13:31.912]	File: /home/jay/xela/src/XELA_server-1.5.0rc21201-Ubuntu16.04-x64
+[21/06/2021 20:13:31.912]	ARGS: {'failures': [(1624277611.9076943, 'ros')], 'file': '/etc/xela/xServ.ini', 'port': 5000, 'ip': '127.0.0.1', 'log': 'xela_error.log', 'csv': '/etc/xela/CSV', 'noros': True, 'timeout': False, 'debug': False, 'roslog': None, 'rosname': None}
+[21/06/2021 20:13:31.913]	EXEC: /home/jay/xela/src/XELA_server-1.5.0rc21201-Ubuntu16.04-x64/xela_server
+[21/06/2021 20:13:32.316]	[31mConfig file ([32m/etc/xela/xServ.ini[31m) does not exist[0m

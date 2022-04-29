@@ -1,0 +1,70 @@
+一.
+sudo ip link set can0 type can bitrate 1000000
+sudo ip link set up can0
+cd /home/wang/xela/src/XELA_server-1.5.0rc21201-Ubuntu16.04-x64
+./xela_conf   确认消息
+./xela_server
+
+二.
+进入xela环境 (conda activate xela)
+ros_env
+cd ~/xela
+source devel/setup.bash
+roslaunch xela_initial xela_initialize.launch
+
+
+
+或者：
+roscore
+进入xela环境 (conda activate xela)
+ros_env
+cd ~/xela
+source devel/setup.bash
+cd /home/wang/xela/src/XELA_server-1.5.0rc21201-Ubuntu16.04-x64/scripts
+1. 发布raw消息
+python xela_pub_1.py 发布消息 /xela/1_x_data_raw /xela/1_y_data_raw /xela/1_z_data_raw
+python xela_pub_2.py 发布消息 /xela/2_x_data_raw /xela/2_y_data_raw /xela/2_z_data_raw
+2. 发布raw消息
+python xela_pub_1_calibrated.py 发布消息 /xela/1_x_data_calibrated /xela/1_y_data_calibrated /xela/1_z_data_calibrated
+python xela_pub_2_calibrated.py 发布消息 /xela/2_x_data_calibrated /xela/2_y_data_calibrated /xela/2_z_data_calibrated
+
+
+三.
+采集数据
+1.进入xela环境 (conda activate xela)
+ros_env
+cd ~/xela
+source devel/setup.bash
+cd /home/wang/xela/src/XELA_server-1.5.0rc21201-Ubuntu16.04-x64/scripts
+python xela_pub_calibrate.py
+2. ros_env
+cd ~/xela
+source devel/setup.bash
+cd /home/wang/xela/src/XELA_server-1.5.0rc21201-Ubuntu16.04-x64/scripts
+python xela_pub_calibrate_save.py
+
+
+
+四.
+对齐A.B传感器
+cd ~/xela
+source devel/setup.bash
+rosrun xela_initial xela_aligned_pub.py 输出对齐后的数据_calibrated '/xela/1and2_all_data_calibrated', xela_msg
+
+
+
+五.可视化
+输入0数据
+rosrun xela_initial xela_zero_pub.py
+
+rqt_plot 1_z:
+cd ~/xela
+source devel/setup.bash
+rqt_plot /xela/1_z_data_calibrated/array/data[0]:data[1]:data[2]:data[3]:data[4]:data[5]:data[6]:data[7]:data[8]:data[9]:data[10]:data[11]:data[12]:data[13]:data[14]:data[15]
+
+rqt_plot 2_z:
+cd ~/xela
+source devel/setup.bash
+rqt_plot /xela/2_z_data_calibrated/array/data[0]:data[1]:data[2]:data[3]:data[4]:data[5]:data[6]:data[7]:data[8]:data[9]:data[10]:data[11]:data[12]:data[13]:data[14]:data[15]
+
+

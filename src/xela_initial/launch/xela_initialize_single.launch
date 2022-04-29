@@ -1,0 +1,4 @@
+<launch>
+    <node name="xela_1" pkg="xela_initial"
+          type="xela_pub_1_calibrated_single.py"/>
+</launch>
