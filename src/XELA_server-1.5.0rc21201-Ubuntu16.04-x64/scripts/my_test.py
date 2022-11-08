@@ -4,7 +4,8 @@ import json
 from time import sleep
 import threading
 
-ip = "192.168.0.114" #your computer IP on the network
+#ip = "192.168.0.114" #your computer IP on the network
+ip = "202.38.246.162"
 port = 5000 #the port the server is running on
 
 lastmessage = {"message":"No message"} #default message you will overwrite when you get update

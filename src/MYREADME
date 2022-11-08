@@ -1,3 +1,16 @@
+目录：
+calibrate_Data  楠哥的标定数据
+xela_calibrate  楠哥的标定程序
+xela_server     ros中的使用
+XELA_server-1.5.0rc21201-Ubuntu16.04-x64    前面版本的启动
+xela_initial    楠哥的话题输出程序
+-----------------------------------------------------------------------
+peak-linux-driver-8.12.0    驱动
+u16     现版本的启动
+my_xela_initial     话题输出程序
+
+
+使用方法：
 一.
 sudo ip link set can0 type can bitrate 1000000
 sudo ip link set up can0
@@ -10,4 +23,13 @@ cd xela/src/u16
 cd xela/
 source devel/setup.bash
 cd src/XELA_server-1.5.0rc21201-Ubuntu16.04-x64/script
-./my_test.py
+./my_test.py	没有反应的话记得修改文件中的ip地址
+
+三.
+上述一过程可直接通过
+./xela/src/my_xela_start.sh
+启动
+
+发布标定之后的传感器数值
+conda_env;source activate
+roslaunch my_xela_initial xela_initialize.launch    （启动出问题记得看ip地址是否正确）

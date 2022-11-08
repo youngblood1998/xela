@@ -1,0 +1,6 @@
+<launch>
+    <node name="xela_1" pkg="my_xela_initial"
+          type="xela_pub_1_calibrated.py"/>
+    <node name="xela_2" pkg="my_xela_initial"
+          type="xela_pub_2_calibrated.py"/>
+</launch>

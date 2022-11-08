@@ -10,7 +10,7 @@ from my_xela_initial.msg import xela_msg
 
 initial_all = []
 
-ip = "172.28.91.241" #your computer IP on the network
+ip = "202.38.246.162" #your computer IP on the network
 port = 5000 #the port the server is running on
 
 lastmessage = {"message":"No message"} #default message you will overwrite when you get update
