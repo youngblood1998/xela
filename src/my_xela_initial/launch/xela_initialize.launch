@@ -1,4 +1,6 @@
 <launch>
+      <param name="ip" type="string" value="192.168.1.12"/>
+      <param name="port" type="string" value="5000"/>
     <node name="xela_1" pkg="my_xela_initial"
           type="xela_pub_1_calibrated.py"/>
     <node name="xela_2" pkg="my_xela_initial"

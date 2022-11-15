@@ -63,6 +63,13 @@
 /home/jay/xela/build/my_xela_initial/CMakeFiles/my_xela_initial_generate_messages_cpp.dir
 /home/jay/xela/build/my_xela_initial/CMakeFiles/my_xela_initial_gencpp.dir
 /home/jay/xela/build/my_xela_initial/CMakeFiles/my_xela_initial_generate_messages_eus.dir
+/home/jay/xela/build/pose_adjust/CMakeFiles/list_install_components.dir
+/home/jay/xela/build/pose_adjust/CMakeFiles/install.dir
+/home/jay/xela/build/pose_adjust/CMakeFiles/rebuild_cache.dir
+/home/jay/xela/build/pose_adjust/CMakeFiles/install/strip.dir
+/home/jay/xela/build/pose_adjust/CMakeFiles/install/local.dir
+/home/jay/xela/build/pose_adjust/CMakeFiles/test.dir
+/home/jay/xela/build/pose_adjust/CMakeFiles/edit_cache.dir
 /home/jay/xela/build/xela_calibrate/CMakeFiles/list_install_components.dir
 /home/jay/xela/build/xela_calibrate/CMakeFiles/install.dir
 /home/jay/xela/build/xela_calibrate/CMakeFiles/rebuild_cache.dir

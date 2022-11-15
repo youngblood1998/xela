@@ -6,6 +6,7 @@
 # testing this directory and lists subdirectories to be tested as well.
 subdirs(gtest)
 subdirs(my_xela_initial)
+subdirs(pose_adjust)
 subdirs(xela_calibrate)
 subdirs(xela_initial)
 subdirs(xela_server)

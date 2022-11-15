@@ -1342,6 +1342,24 @@ clean: my_xela_initial/CMakeFiles/my_xela_initial_generate_messages_eus.dir/clea
 .PHONY : clean
 
 #=============================================================================
+# Directory level rules for directory pose_adjust
+
+# Convenience name for "all" pass in the directory.
+pose_adjust/all:
+
+.PHONY : pose_adjust/all
+
+# Convenience name for "clean" pass in the directory.
+pose_adjust/clean:
+
+.PHONY : pose_adjust/clean
+
+# Convenience name for "preinstall" pass in the directory.
+pose_adjust/preinstall:
+
+.PHONY : pose_adjust/preinstall
+
+#=============================================================================
 # Directory level rules for directory xela_calibrate
 
 # Convenience name for "all" pass in the directory.

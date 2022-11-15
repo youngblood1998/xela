@@ -1,0 +1,8 @@
+prefix=/home/jay/xela/devel
+
+Name: pose_adjust
+Description: Description of pose_adjust
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

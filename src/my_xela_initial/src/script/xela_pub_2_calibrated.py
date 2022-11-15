@@ -9,8 +9,10 @@ from my_xela_initial.msg import xela_msg
 
 initial_all = []
 
-ip = "202.38.246.162" #your computer IP on the network
-port = 5000 #the port the server is running on
+# ip = "202.38.246.162" #your computer IP on the network
+# port = 5000 #the port the server is running on
+ip = rospy.get_param("ip")
+port = int(rospy.get_param("port"))
 
 lastmessage = {"message":"No message"} #default message you will overwrite when you get update
 
@@ -64,9 +66,9 @@ def mesreader():#this is your app reading the last valid message you received
                     data_map_int[i] = data_map_int[i]*0.0004451
 
                 pub_all_msg.array.data = data_map_int
-                pub_x_msg.array.data = [data_map_int[i] for i in range(0,48,3)]
-                pub_y_msg.array.data = [-data_map_int[i] for i in range(1,48,3)]
-                pub_z_msg.array.data = [data_map_int[i] for i in range(2,48,3)]
+                pub_x_msg.array.data = [data_map_int[i] for i in range(45,-1,-3)]
+                pub_y_msg.array.data = [-data_map_int[i] for i in range(46,-1,-3)]
+                pub_z_msg.array.data = [data_map_int[i] for i in range(47,-1,-3)]
                 pub_all_sum_msg.array.data = [sum(pub_x_msg.array.data), sum(pub_y_msg.array.data),sum(pub_z_msg.array.data)]
 
                 pub_all_msg.header = h

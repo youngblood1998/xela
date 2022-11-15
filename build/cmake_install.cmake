@@ -127,6 +127,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/jay/xela/build/gtest/cmake_install.cmake")
   include("/home/jay/xela/build/my_xela_initial/cmake_install.cmake")
+  include("/home/jay/xela/build/pose_adjust/cmake_install.cmake")
   include("/home/jay/xela/build/xela_calibrate/cmake_install.cmake")
   include("/home/jay/xela/build/xela_initial/cmake_install.cmake")
   include("/home/jay/xela/build/xela_server/cmake_install.cmake")
