@@ -4,7 +4,7 @@ import json
 from time import sleep
 import threading
 
-ip = "202.38.246.162" #your computer IP on the network
+ip = "127.0.0.1" #your computer IP on the network
 port = 5000 #the port the server is running on
 
 lastmessage = {"message":"No message"} #default message you will overwrite when you get update
@@ -46,6 +46,7 @@ def mesreader():#this is your app reading the last valid message you received
         exit()
 threader(mesreader,name="Receiver") #start you main app
 websocket.setdefaulttimeout(1) #you should avoid increasing it.
+print(ip, port)
 wsapp = websocket.WebSocketApp("ws://{}:{}".format(ip,port), on_message=on_message)#set up WebSockets
 wsapp.run_forever() #Run until connection dies
 exit()

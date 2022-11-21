@@ -8,9 +8,9 @@ from pose_adjust.msg import AdjustParams
 
 from trans_func import num_to_real_width
 
-FORCE_THRESH = 0.5  # 力阈值N
+FORCE_THRESH = 0.2  # 力阈值N
 GRASP_NUM_STEP = 5  # 夹爪每次闭合时增加的输入值
-MAX_STEPS = 10  # 闭合的最大次数
+MAX_STEPS = 20  # 闭合的最大次数
 INTERVAL = 5    # 传感器触点间的距离mm
 LINE_NUM = 4    # 每行的触点数
 CENT_X = float(LINE_NUM-1)*INTERVAL/2   # 假定的x轴中心点
@@ -48,10 +48,12 @@ class PoseAdjust:
             print("位姿调整检测开始")
             # 记录初始的夹爪输入数值
             init_grasp_num = int(rospy.get_param("/robotiq_command"))
+            print(init_grasp_num)
             i = 0
             while ((sum(self.z_data_left)<FORCE_THRESH or sum(self.z_data_right)<FORCE_THRESH)) and i <= MAX_STEPS:
                 i += 1
                 rospy.set_param("/robotiq_command",str(init_grasp_num + i*GRASP_NUM_STEP))
+                rospy.sleep(0.5)
             # 如果闭合到一定程度还没有传感器数值，则停止
             if i > MAX_STEPS:
                 rospy.set_param("/grasp_step", 6)
@@ -80,9 +82,11 @@ class PoseAdjust:
                     real_gripper_rotate_z = np.arctan(float(move_x_left - move_x_right)/num_to_real_width(init_grasp_num + i*GRASP_NUM_STEP))
                     real_gripper_move_z = (move_y_left + move_y_right)/2
                     real_gripper_rotate_y = np.arctan(float(move_y_right - move_y_left)/num_to_real_width(init_grasp_num + i*GRASP_NUM_STEP))
+                    print(real_gripper_move_y, real_gripper_rotate_z, real_gripper_move_z, real_gripper_rotate_y)
                     # 发布调整信息的话题
                     rospy.set_param("/robotiq_command",str(init_grasp_num))
-                    rospy.sleep(0.2)
+                    print(init_grasp_num)
+                    rospy.sleep(2)
                     adjust_params = AdjustParams()
                     adjust_params.y = real_gripper_move_y
                     adjust_params.z = real_gripper_move_z
@@ -98,6 +102,7 @@ class PoseAdjust:
                     while ((sum(self.z_data_left)<FORCE_THRESH or sum(self.z_data_right)<FORCE_THRESH)) and i <= MAX_STEPS:
                         i += 1
                         rospy.set_param("/robotiq_command",str(init_grasp_num + i*GRASP_NUM_STEP))
+                        rospy.sleep(0.5)
                     # 如果闭合到一定程度还没有传感器数值，则停止
                     if i > MAX_STEPS:
                         rospy.set_param("/grasp_step", 6)

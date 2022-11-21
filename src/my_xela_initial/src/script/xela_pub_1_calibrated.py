@@ -9,7 +9,7 @@ from my_xela_initial.msg import xela_msg
 
 initial_all = []
 
-# ip = "202.38.246.162" #your computer IP on the network
+# ip = "127.0.0.1" #your computer IP on the network
 # port = 5000 #the port the server is running on
 ip = rospy.get_param("ip")
 port = int(rospy.get_param("port"))
@@ -94,6 +94,7 @@ def mesreader():#this is your app reading the last valid message you received
         exit()
 threader(mesreader,name="Receiver") #start you main app
 websocket.setdefaulttimeout(1) #you should avoid increasing it.
+print(ip, port)
 wsapp = websocket.WebSocketApp("ws://{}:{}".format(ip,port), on_message=on_message)#set up WebSockets
 
 rospy.init_node('xela_publisher_1', anonymous=True)

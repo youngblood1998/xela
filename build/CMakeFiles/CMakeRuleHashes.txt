@@ -1,5 +1,6 @@
 # Hashes of file build rules.
 6bc8600336e9e66a7e52740486abcf5f /home/jay/xela/devel/include/my_xela_initial/xela_msg.h
+1211453a22e4223cf0004b9de19f9bda /home/jay/xela/devel/include/pose_adjust/AdjustParams.h
 b87a1459fc45ce5675913ca726c1e09b /home/jay/xela/devel/include/xela_initial/xela_msg.h
 d1e6c75b4723be8b113bf73c4702db76 /home/jay/xela/devel/include/xela_server/SensPoint.h
 4a5daf2e8df54d405dcc5cf6951399d1 /home/jay/xela/devel/include/xela_server/XelaSensorStream.h
@@ -12,6 +13,8 @@ bb71838c6ffd6188c22fe63498e5e17c /home/jay/xela/devel/include/xela_server/XelaSe
 ac9187e7fb85450702b66fb86bb92501 /home/jay/xela/devel/include/xela_server/xServerMsg.h
 6ee7fd270d2bf727c9592a6538ebbe4e /home/jay/xela/devel/lib/python2.7/dist-packages/my_xela_initial/msg/__init__.py
 652193cef2a1bd8a63e5278afba14b8d /home/jay/xela/devel/lib/python2.7/dist-packages/my_xela_initial/msg/_xela_msg.py
+a99f7864f8bcc18f06bbe75deb2745d5 /home/jay/xela/devel/lib/python2.7/dist-packages/pose_adjust/msg/_AdjustParams.py
+0b6bdbd87d688b8afe64c571a75fbc85 /home/jay/xela/devel/lib/python2.7/dist-packages/pose_adjust/msg/__init__.py
 25867699a38990f986954d463e928042 /home/jay/xela/devel/lib/python2.7/dist-packages/xela_initial/msg/__init__.py
 d14f6453259405c0087132fd1cf69332 /home/jay/xela/devel/lib/python2.7/dist-packages/xela_initial/msg/_xela_msg.py
 37fc36fe16795bb24912aa8674e85247 /home/jay/xela/devel/lib/python2.7/dist-packages/xela_server/msg/_SensPoint.py
@@ -26,6 +29,7 @@ d1923f28d7adaf462be67fe372f8df28 /home/jay/xela/devel/lib/python2.7/dist-package
 96c1c9796541b035e844fc7b85d7a4a0 /home/jay/xela/devel/lib/python2.7/dist-packages/xela_server/srv/_XelaSensorZ.py
 baf32dcf51b8d9df07d9687661849676 /home/jay/xela/devel/lib/python2.7/dist-packages/xela_server/srv/__init__.py
 da19a13fa485cbd4e3a8078aa79b8e11 /home/jay/xela/devel/share/common-lisp/ros/my_xela_initial/msg/xela_msg.lisp
+5eddd9f8f81100b68672d727fa269578 /home/jay/xela/devel/share/common-lisp/ros/pose_adjust/msg/AdjustParams.lisp
 d4fe2d967db5cfbc99e05e72369f0460 /home/jay/xela/devel/share/common-lisp/ros/xela_initial/msg/xela_msg.lisp
 3bbc3a6352b1defd55eab9fe28bcb447 /home/jay/xela/devel/share/common-lisp/ros/xela_server/msg/SensPoint.lisp
 23eaa6aece6e51bf4e66b2addcc3eeb4 /home/jay/xela/devel/share/common-lisp/ros/xela_server/msg/xSensorData.lisp
@@ -37,6 +41,7 @@ efb7f752b0c35277c935e1694756c8cc /home/jay/xela/devel/share/common-lisp/ros/xela
 98abce75921d5b6070907f1905fe5ffc /home/jay/xela/devel/share/common-lisp/ros/xela_server/srv/XelaSensorY.lisp
 b713468308dabeb9f7710984401c6deb /home/jay/xela/devel/share/common-lisp/ros/xela_server/srv/XelaSensorZ.lisp
 7dec166109d8b8e7ca72adfe136fe1b5 /home/jay/xela/devel/share/gennodejs/ros/my_xela_initial/msg/xela_msg.js
+d532e4dc84c2a8b46b625c3f77fb62b8 /home/jay/xela/devel/share/gennodejs/ros/pose_adjust/msg/AdjustParams.js
 89a405e4f406c697a379720536d7981a /home/jay/xela/devel/share/gennodejs/ros/xela_initial/msg/xela_msg.js
 02810a010c4a88533860dd9d6feb186e /home/jay/xela/devel/share/gennodejs/ros/xela_server/msg/SensPoint.js
 378b24f00ebc08ab3d42e81bb5f85aef /home/jay/xela/devel/share/gennodejs/ros/xela_server/msg/xSensorData.js
@@ -49,6 +54,8 @@ e94fdf6d2d56c2d833f3816a2b5990cd /home/jay/xela/devel/share/gennodejs/ros/xela_s
 8328917543b6b500842e26f1a6daf0de /home/jay/xela/devel/share/gennodejs/ros/xela_server/srv/XelaSensorZ.js
 5cbe2c000e96a9371931a8cdad22b2df /home/jay/xela/devel/share/roseus/ros/my_xela_initial/manifest.l
 d10dd5a869ded7517bb8ed389aaab39b /home/jay/xela/devel/share/roseus/ros/my_xela_initial/msg/xela_msg.l
+f7e52d6f87476b86a9d20ae7fc327eca /home/jay/xela/devel/share/roseus/ros/pose_adjust/manifest.l
+d30d63bdd99a1c298efa2b8bd337e086 /home/jay/xela/devel/share/roseus/ros/pose_adjust/msg/AdjustParams.l
 977fdc21be1ada01ec20a0432fec1725 /home/jay/xela/devel/share/roseus/ros/xela_initial/manifest.l
 2bac951e3e33fe97917de69b1141f424 /home/jay/xela/devel/share/roseus/ros/xela_initial/msg/xela_msg.l
 1bdafd13ba0a766eac233b5b9ff4e401 /home/jay/xela/devel/share/roseus/ros/xela_server/manifest.l
@@ -68,6 +75,12 @@ fca24bc5177e72353183986521ffb120 my_xela_initial/CMakeFiles/_my_xela_initial_gen
 1b8cbfa95304e9fb02760ac56e618e7c my_xela_initial/CMakeFiles/my_xela_initial_generate_messages_lisp
 1b8cbfa95304e9fb02760ac56e618e7c my_xela_initial/CMakeFiles/my_xela_initial_generate_messages_nodejs
 1b8cbfa95304e9fb02760ac56e618e7c my_xela_initial/CMakeFiles/my_xela_initial_generate_messages_py
+9374fb074c78d264c11b47c2f4d02d4f pose_adjust/CMakeFiles/_pose_adjust_generate_messages_check_deps_AdjustParams
+31257e37f7f119734d19dfe5cb767809 pose_adjust/CMakeFiles/pose_adjust_generate_messages_cpp
+31257e37f7f119734d19dfe5cb767809 pose_adjust/CMakeFiles/pose_adjust_generate_messages_eus
+31257e37f7f119734d19dfe5cb767809 pose_adjust/CMakeFiles/pose_adjust_generate_messages_lisp
+31257e37f7f119734d19dfe5cb767809 pose_adjust/CMakeFiles/pose_adjust_generate_messages_nodejs
+31257e37f7f119734d19dfe5cb767809 pose_adjust/CMakeFiles/pose_adjust_generate_messages_py
 beeebc2221b0417943961e43f4941b2e xela_initial/CMakeFiles/_xela_initial_generate_messages_check_deps_xela_msg
 7a1edbcf7e33d9dd774b19a914aad950 xela_initial/CMakeFiles/xela_initial_generate_messages_cpp
 7a1edbcf7e33d9dd774b19a914aad950 xela_initial/CMakeFiles/xela_initial_generate_messages_eus

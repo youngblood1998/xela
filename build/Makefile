@@ -647,6 +647,162 @@ my_xela_initial_generate_messages_eus/fast:
 .PHONY : my_xela_initial_generate_messages_eus/fast
 
 #=============================================================================
+# Target rules for targets named pose_adjust_gencpp
+
+# Build rule for target.
+pose_adjust_gencpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 pose_adjust_gencpp
+.PHONY : pose_adjust_gencpp
+
+# fast build rule for target.
+pose_adjust_gencpp/fast:
+	$(MAKE) -f pose_adjust/CMakeFiles/pose_adjust_gencpp.dir/build.make pose_adjust/CMakeFiles/pose_adjust_gencpp.dir/build
+.PHONY : pose_adjust_gencpp/fast
+
+#=============================================================================
+# Target rules for targets named pose_adjust_generate_messages
+
+# Build rule for target.
+pose_adjust_generate_messages: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 pose_adjust_generate_messages
+.PHONY : pose_adjust_generate_messages
+
+# fast build rule for target.
+pose_adjust_generate_messages/fast:
+	$(MAKE) -f pose_adjust/CMakeFiles/pose_adjust_generate_messages.dir/build.make pose_adjust/CMakeFiles/pose_adjust_generate_messages.dir/build
+.PHONY : pose_adjust_generate_messages/fast
+
+#=============================================================================
+# Target rules for targets named pose_adjust_generate_messages_lisp
+
+# Build rule for target.
+pose_adjust_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 pose_adjust_generate_messages_lisp
+.PHONY : pose_adjust_generate_messages_lisp
+
+# fast build rule for target.
+pose_adjust_generate_messages_lisp/fast:
+	$(MAKE) -f pose_adjust/CMakeFiles/pose_adjust_generate_messages_lisp.dir/build.make pose_adjust/CMakeFiles/pose_adjust_generate_messages_lisp.dir/build
+.PHONY : pose_adjust_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named pose_adjust_generate_messages_cpp
+
+# Build rule for target.
+pose_adjust_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 pose_adjust_generate_messages_cpp
+.PHONY : pose_adjust_generate_messages_cpp
+
+# fast build rule for target.
+pose_adjust_generate_messages_cpp/fast:
+	$(MAKE) -f pose_adjust/CMakeFiles/pose_adjust_generate_messages_cpp.dir/build.make pose_adjust/CMakeFiles/pose_adjust_generate_messages_cpp.dir/build
+.PHONY : pose_adjust_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named pose_adjust_generate_messages_eus
+
+# Build rule for target.
+pose_adjust_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 pose_adjust_generate_messages_eus
+.PHONY : pose_adjust_generate_messages_eus
+
+# fast build rule for target.
+pose_adjust_generate_messages_eus/fast:
+	$(MAKE) -f pose_adjust/CMakeFiles/pose_adjust_generate_messages_eus.dir/build.make pose_adjust/CMakeFiles/pose_adjust_generate_messages_eus.dir/build
+.PHONY : pose_adjust_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named pose_adjust_geneus
+
+# Build rule for target.
+pose_adjust_geneus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 pose_adjust_geneus
+.PHONY : pose_adjust_geneus
+
+# fast build rule for target.
+pose_adjust_geneus/fast:
+	$(MAKE) -f pose_adjust/CMakeFiles/pose_adjust_geneus.dir/build.make pose_adjust/CMakeFiles/pose_adjust_geneus.dir/build
+.PHONY : pose_adjust_geneus/fast
+
+#=============================================================================
+# Target rules for targets named _pose_adjust_generate_messages_check_deps_AdjustParams
+
+# Build rule for target.
+_pose_adjust_generate_messages_check_deps_AdjustParams: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _pose_adjust_generate_messages_check_deps_AdjustParams
+.PHONY : _pose_adjust_generate_messages_check_deps_AdjustParams
+
+# fast build rule for target.
+_pose_adjust_generate_messages_check_deps_AdjustParams/fast:
+	$(MAKE) -f pose_adjust/CMakeFiles/_pose_adjust_generate_messages_check_deps_AdjustParams.dir/build.make pose_adjust/CMakeFiles/_pose_adjust_generate_messages_check_deps_AdjustParams.dir/build
+.PHONY : _pose_adjust_generate_messages_check_deps_AdjustParams/fast
+
+#=============================================================================
+# Target rules for targets named pose_adjust_generate_messages_py
+
+# Build rule for target.
+pose_adjust_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 pose_adjust_generate_messages_py
+.PHONY : pose_adjust_generate_messages_py
+
+# fast build rule for target.
+pose_adjust_generate_messages_py/fast:
+	$(MAKE) -f pose_adjust/CMakeFiles/pose_adjust_generate_messages_py.dir/build.make pose_adjust/CMakeFiles/pose_adjust_generate_messages_py.dir/build
+.PHONY : pose_adjust_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named pose_adjust_genlisp
+
+# Build rule for target.
+pose_adjust_genlisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 pose_adjust_genlisp
+.PHONY : pose_adjust_genlisp
+
+# fast build rule for target.
+pose_adjust_genlisp/fast:
+	$(MAKE) -f pose_adjust/CMakeFiles/pose_adjust_genlisp.dir/build.make pose_adjust/CMakeFiles/pose_adjust_genlisp.dir/build
+.PHONY : pose_adjust_genlisp/fast
+
+#=============================================================================
+# Target rules for targets named pose_adjust_generate_messages_nodejs
+
+# Build rule for target.
+pose_adjust_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 pose_adjust_generate_messages_nodejs
+.PHONY : pose_adjust_generate_messages_nodejs
+
+# fast build rule for target.
+pose_adjust_generate_messages_nodejs/fast:
+	$(MAKE) -f pose_adjust/CMakeFiles/pose_adjust_generate_messages_nodejs.dir/build.make pose_adjust/CMakeFiles/pose_adjust_generate_messages_nodejs.dir/build
+.PHONY : pose_adjust_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named pose_adjust_genpy
+
+# Build rule for target.
+pose_adjust_genpy: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 pose_adjust_genpy
+.PHONY : pose_adjust_genpy
+
+# fast build rule for target.
+pose_adjust_genpy/fast:
+	$(MAKE) -f pose_adjust/CMakeFiles/pose_adjust_genpy.dir/build.make pose_adjust/CMakeFiles/pose_adjust_genpy.dir/build
+.PHONY : pose_adjust_genpy/fast
+
+#=============================================================================
+# Target rules for targets named pose_adjust_gennodejs
+
+# Build rule for target.
+pose_adjust_gennodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 pose_adjust_gennodejs
+.PHONY : pose_adjust_gennodejs
+
+# fast build rule for target.
+pose_adjust_gennodejs/fast:
+	$(MAKE) -f pose_adjust/CMakeFiles/pose_adjust_gennodejs.dir/build.make pose_adjust/CMakeFiles/pose_adjust_gennodejs.dir/build
+.PHONY : pose_adjust_gennodejs/fast
+
+#=============================================================================
 # Target rules for targets named xela_initial_genpy
 
 # Build rule for target.
@@ -1112,6 +1268,18 @@ help:
 	@echo "... my_xela_initial_generate_messages_cpp"
 	@echo "... my_xela_initial_gencpp"
 	@echo "... my_xela_initial_generate_messages_eus"
+	@echo "... pose_adjust_gencpp"
+	@echo "... pose_adjust_generate_messages"
+	@echo "... pose_adjust_generate_messages_lisp"
+	@echo "... pose_adjust_generate_messages_cpp"
+	@echo "... pose_adjust_generate_messages_eus"
+	@echo "... pose_adjust_geneus"
+	@echo "... _pose_adjust_generate_messages_check_deps_AdjustParams"
+	@echo "... pose_adjust_generate_messages_py"
+	@echo "... pose_adjust_genlisp"
+	@echo "... pose_adjust_generate_messages_nodejs"
+	@echo "... pose_adjust_genpy"
+	@echo "... pose_adjust_gennodejs"
 	@echo "... xela_initial_genpy"
 	@echo "... xela_initial_generate_messages_lisp"
 	@echo "... xela_initial_generate_messages_py"

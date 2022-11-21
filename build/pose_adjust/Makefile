@@ -56,16 +56,6 @@ CMAKE_BINARY_DIR = /home/jay/xela/build
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-
-.PHONY : list_install_components/fast
-
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
@@ -89,16 +79,16 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
 
-# Special rule for the target install/strip
-install/strip/fast: install/strip
+# Special rule for the target test
+test/fast: test
 
-.PHONY : install/strip/fast
+.PHONY : test/fast
 
 # Special rule for the target install/local
 install/local: preinstall
@@ -111,16 +101,26 @@ install/local/fast: install/local
 
 .PHONY : install/local/fast
 
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
 
-# Special rule for the target test
-test/fast: test
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
 
-.PHONY : test/fast
+.PHONY : list_install_components/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: install/strip
+
+.PHONY : install/strip/fast
 
 # Special rule for the target edit_cache
 edit_cache:
@@ -165,19 +165,211 @@ depend:
 	cd /home/jay/xela/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
+# Convenience name for target.
+pose_adjust/CMakeFiles/pose_adjust_gencpp.dir/rule:
+	cd /home/jay/xela/build && $(MAKE) -f CMakeFiles/Makefile2 pose_adjust/CMakeFiles/pose_adjust_gencpp.dir/rule
+.PHONY : pose_adjust/CMakeFiles/pose_adjust_gencpp.dir/rule
+
+# Convenience name for target.
+pose_adjust_gencpp: pose_adjust/CMakeFiles/pose_adjust_gencpp.dir/rule
+
+.PHONY : pose_adjust_gencpp
+
+# fast build rule for target.
+pose_adjust_gencpp/fast:
+	cd /home/jay/xela/build && $(MAKE) -f pose_adjust/CMakeFiles/pose_adjust_gencpp.dir/build.make pose_adjust/CMakeFiles/pose_adjust_gencpp.dir/build
+.PHONY : pose_adjust_gencpp/fast
+
+# Convenience name for target.
+pose_adjust/CMakeFiles/pose_adjust_generate_messages.dir/rule:
+	cd /home/jay/xela/build && $(MAKE) -f CMakeFiles/Makefile2 pose_adjust/CMakeFiles/pose_adjust_generate_messages.dir/rule
+.PHONY : pose_adjust/CMakeFiles/pose_adjust_generate_messages.dir/rule
+
+# Convenience name for target.
+pose_adjust_generate_messages: pose_adjust/CMakeFiles/pose_adjust_generate_messages.dir/rule
+
+.PHONY : pose_adjust_generate_messages
+
+# fast build rule for target.
+pose_adjust_generate_messages/fast:
+	cd /home/jay/xela/build && $(MAKE) -f pose_adjust/CMakeFiles/pose_adjust_generate_messages.dir/build.make pose_adjust/CMakeFiles/pose_adjust_generate_messages.dir/build
+.PHONY : pose_adjust_generate_messages/fast
+
+# Convenience name for target.
+pose_adjust/CMakeFiles/pose_adjust_generate_messages_lisp.dir/rule:
+	cd /home/jay/xela/build && $(MAKE) -f CMakeFiles/Makefile2 pose_adjust/CMakeFiles/pose_adjust_generate_messages_lisp.dir/rule
+.PHONY : pose_adjust/CMakeFiles/pose_adjust_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+pose_adjust_generate_messages_lisp: pose_adjust/CMakeFiles/pose_adjust_generate_messages_lisp.dir/rule
+
+.PHONY : pose_adjust_generate_messages_lisp
+
+# fast build rule for target.
+pose_adjust_generate_messages_lisp/fast:
+	cd /home/jay/xela/build && $(MAKE) -f pose_adjust/CMakeFiles/pose_adjust_generate_messages_lisp.dir/build.make pose_adjust/CMakeFiles/pose_adjust_generate_messages_lisp.dir/build
+.PHONY : pose_adjust_generate_messages_lisp/fast
+
+# Convenience name for target.
+pose_adjust/CMakeFiles/pose_adjust_generate_messages_cpp.dir/rule:
+	cd /home/jay/xela/build && $(MAKE) -f CMakeFiles/Makefile2 pose_adjust/CMakeFiles/pose_adjust_generate_messages_cpp.dir/rule
+.PHONY : pose_adjust/CMakeFiles/pose_adjust_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+pose_adjust_generate_messages_cpp: pose_adjust/CMakeFiles/pose_adjust_generate_messages_cpp.dir/rule
+
+.PHONY : pose_adjust_generate_messages_cpp
+
+# fast build rule for target.
+pose_adjust_generate_messages_cpp/fast:
+	cd /home/jay/xela/build && $(MAKE) -f pose_adjust/CMakeFiles/pose_adjust_generate_messages_cpp.dir/build.make pose_adjust/CMakeFiles/pose_adjust_generate_messages_cpp.dir/build
+.PHONY : pose_adjust_generate_messages_cpp/fast
+
+# Convenience name for target.
+pose_adjust/CMakeFiles/pose_adjust_generate_messages_eus.dir/rule:
+	cd /home/jay/xela/build && $(MAKE) -f CMakeFiles/Makefile2 pose_adjust/CMakeFiles/pose_adjust_generate_messages_eus.dir/rule
+.PHONY : pose_adjust/CMakeFiles/pose_adjust_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+pose_adjust_generate_messages_eus: pose_adjust/CMakeFiles/pose_adjust_generate_messages_eus.dir/rule
+
+.PHONY : pose_adjust_generate_messages_eus
+
+# fast build rule for target.
+pose_adjust_generate_messages_eus/fast:
+	cd /home/jay/xela/build && $(MAKE) -f pose_adjust/CMakeFiles/pose_adjust_generate_messages_eus.dir/build.make pose_adjust/CMakeFiles/pose_adjust_generate_messages_eus.dir/build
+.PHONY : pose_adjust_generate_messages_eus/fast
+
+# Convenience name for target.
+pose_adjust/CMakeFiles/pose_adjust_geneus.dir/rule:
+	cd /home/jay/xela/build && $(MAKE) -f CMakeFiles/Makefile2 pose_adjust/CMakeFiles/pose_adjust_geneus.dir/rule
+.PHONY : pose_adjust/CMakeFiles/pose_adjust_geneus.dir/rule
+
+# Convenience name for target.
+pose_adjust_geneus: pose_adjust/CMakeFiles/pose_adjust_geneus.dir/rule
+
+.PHONY : pose_adjust_geneus
+
+# fast build rule for target.
+pose_adjust_geneus/fast:
+	cd /home/jay/xela/build && $(MAKE) -f pose_adjust/CMakeFiles/pose_adjust_geneus.dir/build.make pose_adjust/CMakeFiles/pose_adjust_geneus.dir/build
+.PHONY : pose_adjust_geneus/fast
+
+# Convenience name for target.
+pose_adjust/CMakeFiles/_pose_adjust_generate_messages_check_deps_AdjustParams.dir/rule:
+	cd /home/jay/xela/build && $(MAKE) -f CMakeFiles/Makefile2 pose_adjust/CMakeFiles/_pose_adjust_generate_messages_check_deps_AdjustParams.dir/rule
+.PHONY : pose_adjust/CMakeFiles/_pose_adjust_generate_messages_check_deps_AdjustParams.dir/rule
+
+# Convenience name for target.
+_pose_adjust_generate_messages_check_deps_AdjustParams: pose_adjust/CMakeFiles/_pose_adjust_generate_messages_check_deps_AdjustParams.dir/rule
+
+.PHONY : _pose_adjust_generate_messages_check_deps_AdjustParams
+
+# fast build rule for target.
+_pose_adjust_generate_messages_check_deps_AdjustParams/fast:
+	cd /home/jay/xela/build && $(MAKE) -f pose_adjust/CMakeFiles/_pose_adjust_generate_messages_check_deps_AdjustParams.dir/build.make pose_adjust/CMakeFiles/_pose_adjust_generate_messages_check_deps_AdjustParams.dir/build
+.PHONY : _pose_adjust_generate_messages_check_deps_AdjustParams/fast
+
+# Convenience name for target.
+pose_adjust/CMakeFiles/pose_adjust_generate_messages_py.dir/rule:
+	cd /home/jay/xela/build && $(MAKE) -f CMakeFiles/Makefile2 pose_adjust/CMakeFiles/pose_adjust_generate_messages_py.dir/rule
+.PHONY : pose_adjust/CMakeFiles/pose_adjust_generate_messages_py.dir/rule
+
+# Convenience name for target.
+pose_adjust_generate_messages_py: pose_adjust/CMakeFiles/pose_adjust_generate_messages_py.dir/rule
+
+.PHONY : pose_adjust_generate_messages_py
+
+# fast build rule for target.
+pose_adjust_generate_messages_py/fast:
+	cd /home/jay/xela/build && $(MAKE) -f pose_adjust/CMakeFiles/pose_adjust_generate_messages_py.dir/build.make pose_adjust/CMakeFiles/pose_adjust_generate_messages_py.dir/build
+.PHONY : pose_adjust_generate_messages_py/fast
+
+# Convenience name for target.
+pose_adjust/CMakeFiles/pose_adjust_genlisp.dir/rule:
+	cd /home/jay/xela/build && $(MAKE) -f CMakeFiles/Makefile2 pose_adjust/CMakeFiles/pose_adjust_genlisp.dir/rule
+.PHONY : pose_adjust/CMakeFiles/pose_adjust_genlisp.dir/rule
+
+# Convenience name for target.
+pose_adjust_genlisp: pose_adjust/CMakeFiles/pose_adjust_genlisp.dir/rule
+
+.PHONY : pose_adjust_genlisp
+
+# fast build rule for target.
+pose_adjust_genlisp/fast:
+	cd /home/jay/xela/build && $(MAKE) -f pose_adjust/CMakeFiles/pose_adjust_genlisp.dir/build.make pose_adjust/CMakeFiles/pose_adjust_genlisp.dir/build
+.PHONY : pose_adjust_genlisp/fast
+
+# Convenience name for target.
+pose_adjust/CMakeFiles/pose_adjust_generate_messages_nodejs.dir/rule:
+	cd /home/jay/xela/build && $(MAKE) -f CMakeFiles/Makefile2 pose_adjust/CMakeFiles/pose_adjust_generate_messages_nodejs.dir/rule
+.PHONY : pose_adjust/CMakeFiles/pose_adjust_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+pose_adjust_generate_messages_nodejs: pose_adjust/CMakeFiles/pose_adjust_generate_messages_nodejs.dir/rule
+
+.PHONY : pose_adjust_generate_messages_nodejs
+
+# fast build rule for target.
+pose_adjust_generate_messages_nodejs/fast:
+	cd /home/jay/xela/build && $(MAKE) -f pose_adjust/CMakeFiles/pose_adjust_generate_messages_nodejs.dir/build.make pose_adjust/CMakeFiles/pose_adjust_generate_messages_nodejs.dir/build
+.PHONY : pose_adjust_generate_messages_nodejs/fast
+
+# Convenience name for target.
+pose_adjust/CMakeFiles/pose_adjust_genpy.dir/rule:
+	cd /home/jay/xela/build && $(MAKE) -f CMakeFiles/Makefile2 pose_adjust/CMakeFiles/pose_adjust_genpy.dir/rule
+.PHONY : pose_adjust/CMakeFiles/pose_adjust_genpy.dir/rule
+
+# Convenience name for target.
+pose_adjust_genpy: pose_adjust/CMakeFiles/pose_adjust_genpy.dir/rule
+
+.PHONY : pose_adjust_genpy
+
+# fast build rule for target.
+pose_adjust_genpy/fast:
+	cd /home/jay/xela/build && $(MAKE) -f pose_adjust/CMakeFiles/pose_adjust_genpy.dir/build.make pose_adjust/CMakeFiles/pose_adjust_genpy.dir/build
+.PHONY : pose_adjust_genpy/fast
+
+# Convenience name for target.
+pose_adjust/CMakeFiles/pose_adjust_gennodejs.dir/rule:
+	cd /home/jay/xela/build && $(MAKE) -f CMakeFiles/Makefile2 pose_adjust/CMakeFiles/pose_adjust_gennodejs.dir/rule
+.PHONY : pose_adjust/CMakeFiles/pose_adjust_gennodejs.dir/rule
+
+# Convenience name for target.
+pose_adjust_gennodejs: pose_adjust/CMakeFiles/pose_adjust_gennodejs.dir/rule
+
+.PHONY : pose_adjust_gennodejs
+
+# fast build rule for target.
+pose_adjust_gennodejs/fast:
+	cd /home/jay/xela/build && $(MAKE) -f pose_adjust/CMakeFiles/pose_adjust_gennodejs.dir/build.make pose_adjust/CMakeFiles/pose_adjust_gennodejs.dir/build
+.PHONY : pose_adjust_gennodejs/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... list_install_components"
 	@echo "... install"
 	@echo "... rebuild_cache"
-	@echo "... install/strip"
-	@echo "... install/local"
 	@echo "... test"
+	@echo "... install/local"
+	@echo "... list_install_components"
+	@echo "... install/strip"
+	@echo "... pose_adjust_gencpp"
+	@echo "... pose_adjust_generate_messages"
+	@echo "... pose_adjust_generate_messages_lisp"
+	@echo "... pose_adjust_generate_messages_cpp"
+	@echo "... pose_adjust_generate_messages_eus"
 	@echo "... edit_cache"
+	@echo "... pose_adjust_geneus"
+	@echo "... _pose_adjust_generate_messages_check_deps_AdjustParams"
+	@echo "... pose_adjust_generate_messages_py"
+	@echo "... pose_adjust_genlisp"
+	@echo "... pose_adjust_generate_messages_nodejs"
+	@echo "... pose_adjust_genpy"
+	@echo "... pose_adjust_gennodejs"
 .PHONY : help
 
 
