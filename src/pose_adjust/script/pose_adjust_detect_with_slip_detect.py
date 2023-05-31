@@ -53,9 +53,16 @@ class PoseAdjust:
             pmin_value = 1
             # 对32个触点进行t检验保存最小的相关值
             for i in range(2*LINE_NUM**2):
-                ttest, pval = ttest_rel(self.xela_sequence_pre[i], self.xela_sequence_next[i])
-                delta = sum(self.xela_sequence_pre) - sum(self.xela_sequence_next)
-                delta_percent = delta / (sum(self.xela_sequence_next)+0.00005)
+                ini_data = self.xela_sequence_pre[i]
+                final_data = self.xela_sequence_next[i]
+                # ttest, pval = ttest_rel(self.xela_sequence_pre[i], self.xela_sequence_next[i])
+                # delta = sum(self.xela_sequence_pre) - sum(self.xela_sequence_next)
+                # delta_percent = delta / (sum(self.xela_sequence_next)+0.00005)
+                # if abs(delta) > DELTA_THRESH and abs(delta_percent) > DELTA_PERCENT_THRESH and pval < pmin_value:
+                #     pmin_value = pval
+                ttest, pval = ttest_rel(ini_data, final_data)
+                delta = sum(ini_data) - sum(final_data)
+                delta_percent = delta / (sum(final_data)+0.00005)
                 if abs(delta) > DELTA_THRESH and abs(delta_percent) > DELTA_PERCENT_THRESH and pval < pmin_value:
                     pmin_value = pval
             # 与阈值对比确定是否存在滑移
@@ -101,7 +108,7 @@ class PoseAdjust:
             init_grasp_num = int(rospy.get_param("/robotiq_command"))
             print(init_grasp_num)
             i = 0
-            while ((sum(self.z_data_left)<FORCE_THRESH or sum(self.z_data_right)<FORCE_THRESH)) and i <= MAX_STEPS:
+            while ((sum(self.z_data_left)>FORCE_THRESH or sum(self.z_data_right)>FORCE_THRESH)) and i <= MAX_STEPS:
                 i += 1
                 rospy.set_param("/robotiq_command",str(init_grasp_num + i*GRASP_NUM_STEP))
                 rospy.sleep(0.5)
@@ -150,7 +157,7 @@ class PoseAdjust:
                         rospy.sleep(0.5)
                     # 夹爪闭合到一定力
                     i = 0
-                    while ((sum(self.z_data_left)<FORCE_THRESH or sum(self.z_data_right)<FORCE_THRESH)) and i <= MAX_STEPS:
+                    while ((sum(self.z_data_left)<FORCE_THRESH and sum(self.z_data_right)<FORCE_THRESH)) and i <= MAX_STEPS:
                         i += 1
                         rospy.set_param("/robotiq_command",str(init_grasp_num + i*GRASP_NUM_STEP))
                         rospy.sleep(0.5)

@@ -9,15 +9,16 @@ from scipy.stats import ttest_rel
 from my_xela_initial.msg import xela_msg
 from trans_func import num_to_real_width
 
-FORCE_THRESH = 0.2  # 力阈值N
-GRASP_NUM_STEP = 5  # 夹爪每次闭合时增加的输入值
+FORCE_THRESH = 0.4  # 力阈值N
+MAX_FORCE_THRESH = 1.5  # 最大力阈值
+GRASP_NUM_STEP = 3  # 夹爪每次闭合时增加的输入值
 MAX_STEPS = 20  # 闭合的最大次数
 LINE_NUM = 4    # 每行的触点数
 BUFFER = 5  # 连续的触觉序列数
-P_THRESH = 0.05     # t检验的阈值
+P_THRESH = 0.01     # t检验的阈值
 DELTA_THRESH = 0.15     # 前后力差值的阈值
 DELTA_PERCENT_THRESH = 0.3  # 前后力差值百分比的阈值
-SLIP_STEP = 3   # 滑移时夹爪增加的输入值
+SLIP_STEP = 1   # 滑移时夹爪增加的输入值
 
 class PoseAdjust:
     def __init__(self):
@@ -33,6 +34,7 @@ class PoseAdjust:
         self.z_2_sub = message_filters.Subscriber("xela/2_z_data_calibrated", xela_msg, queue_size=1, buff_size=52428800)
         sync = message_filters.ApproximateTimeSynchronizer([self.z_1_sub, self.z_2_sub], 1, 0.4, allow_headerless=True)
         sync.registerCallback(self.data_callback)
+        self.lock = False   # 滑移锁
         # 夹爪闭合
         self.control_callback()
 
@@ -42,13 +44,25 @@ class PoseAdjust:
             pmin_value = 1
             # 对32个触点进行t检验保存最小的相关值
             for i in range(2*LINE_NUM**2):
-                ttest, pval = ttest_rel(self.xela_sequence_pre[i], self.xela_sequence_next[i])
-                delta = sum(self.xela_sequence_pre) - sum(self.xela_sequence_next)
-                delta_percent = delta / (sum(self.xela_sequence_next)+0.00005)
+                ini_data = self.xela_sequence_pre[i]
+                final_data = self.xela_sequence_next[i]
+                # ttest, pval = ttest_rel(self.xela_sequence_pre[i], self.xela_sequence_next[i])
+                # delta = sum(self.xela_sequence_pre) - sum(self.xela_sequence_next)
+                # delta_percent = delta / (sum(self.xela_sequence_next)+0.00005)
+                # if abs(delta) > DELTA_THRESH and abs(delta_percent) > DELTA_PERCENT_THRESH and pval < pmin_value:
+                #     pmin_value = pval
+                ttest, pval = ttest_rel(ini_data, final_data)
+                delta = sum(ini_data) - sum(final_data)
+                delta_percent = delta / (sum(final_data)+0.00005)
                 if abs(delta) > DELTA_THRESH and abs(delta_percent) > DELTA_PERCENT_THRESH and pval < pmin_value:
                     pmin_value = pval
             # 与阈值对比确定是否存在滑移
             if pmin_value < P_THRESH:
+                print("阈值")
+                print(sum(ini_data))
+                print(abs(delta))
+                print(abs(delta_percent))
+                print(pmin_value)
                 return True
             else:
                 return False
@@ -58,7 +72,7 @@ class PoseAdjust:
         self.z_data_left = z_data_1.array.data
         self.z_data_right = z_data_2.array.data
         # 只有在抓取成功之后才进行滑移检测
-        if int(rospy.get_param("/grasp_step")) != 3:
+        if (not rospy.has_param("/grasp_step")) or int(rospy.get_param("/grasp_step")) != 3:
             return
         # 保存每5帧的传感器数据进行t检验
         if self.count < BUFFER:
@@ -68,9 +82,14 @@ class PoseAdjust:
             self.count += 1
         else:
             # 进行t检验检测是否滑移
-            if self.slip_detect():
-                cur_grasp_num = int(rospy.get_param("/robotiq_command"))
-                rospy.set_param("/robotiq_command", str(cur_grasp_num + SLIP_STEP))
+            if not self.lock and (sum(self.z_data_left) < MAX_FORCE_THRESH and sum(self.z_data_right) < MAX_FORCE_THRESH):
+                self.lock = True
+                if self.slip_detect():
+                    print("滑移")
+                    cur_grasp_num = int(rospy.get_param("/robotiq_command"))
+                    rospy.set_param("/robotiq_command", str(cur_grasp_num + SLIP_STEP))
+                    rospy.sleep(2)
+                self.lock = False
             self.xela_sequence_next = deepcopy(self.xela_sequence_pre)
             self.xela_sequence_pre = [[] for _ in range(2*LINE_NUM**2)]
             # for i in range(LINE_NUM**2):
@@ -80,6 +99,8 @@ class PoseAdjust:
             self.count = 0
 
     def control_callback(self):
+        ini_z_data_left = self.z_data_left
+        ini_z_data_right = self.z_data_right
         while not rospy.is_shutdown():
             # 等待机器人到达位置并预闭合
             if not rospy.has_param("/grasp_step") or int(rospy.get_param("/grasp_step")) != 2:
@@ -90,7 +111,9 @@ class PoseAdjust:
             init_grasp_num = int(rospy.get_param("/robotiq_command"))
             print(init_grasp_num)
             i = 0
-            while ((sum(self.z_data_left)<FORCE_THRESH and sum(self.z_data_right)<FORCE_THRESH)) and i < MAX_STEPS:
+            while ((sum(self.z_data_left)-sum(ini_z_data_left)<FORCE_THRESH or sum(self.z_data_right)-sum(ini_z_data_right)<FORCE_THRESH)) and i <= MAX_STEPS:
+                print(sum(self.z_data_left))
+                print(sum(self.z_data_right))
                 i += 1
                 rospy.set_param("/robotiq_command",str(init_grasp_num + i*GRASP_NUM_STEP))
                 rospy.sleep(0.5)
